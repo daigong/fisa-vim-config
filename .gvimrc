@@ -1,7 +1,7 @@
 "启动gvim时窗口的大小
 set lines=33 columns=120
 
-colorscheme molokai
+"colorscheme molokai
 
 "隐藏滚动条
 set guioptions-=L

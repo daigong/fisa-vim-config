@@ -267,7 +267,7 @@ map <F2> :TaskList<CR>
 " CtrlP ------------------------------
 
 " file finder mapping
-let g:ctrlp_map = ',e'
+"let g:ctrlp_map = ',e'
 " tags (symbols) in current file finder mapping
 nmap ,g :CtrlPBufTag<CR>
 " tags (symbols) in all files finder mapping
@@ -413,3 +413,20 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_symbols.branch = '⭠'
 "let g:airline_symbols.readonly = '⭤'
 "let g:airline_symbols.linenr = '⭡'
+
+
+" config by daigong
+imap jj <ESC>
+" 关闭自动补全插件 选择第一个
+let g:neocomplcache_enable_auto_select = 0
+
+"写入 Ctrl+L,s
+map <silent> <C-L>s <ESC>:update<CR>
+imap <silent> <C-L>s <ESC>:update<CR>
+"退出 Ctrl+L,q
+map <silent> <C-L>q <ESC>:quit<CR>
+imap <silent> <C-L>q <ESC>:quit<CR>
+
+"python 自动排版
+map <silent> <C-L>f <ESC>:YapfFullFormat<CR>
+imap <silent> <C-L>f <ESC>:YapfFullFormat<CR>
