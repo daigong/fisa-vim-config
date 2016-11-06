@@ -1,3 +1,7 @@
+by daigong
+
+see install and run it to install
+
 fisa-vim-config
 ===============
 

@@ -13,7 +13,8 @@ sudo pip install dbgp vim-debug pep8 flake8 pyflakes isort
 echo '==============================='
 echo 'start to download vimrc file...'
 cp ~/.vimrc /tmp/vimrc.bak
-curl -O https://raw.githubusercontent.com/fisadev/fisa-vim-config/master/.vimrc
+
+curl -O https://raw.githubusercontent.com/daigong/fisa-vim-config/master/.vimrc
 mv .vimrc ~/.vimrc
 
 echo '==============================='
