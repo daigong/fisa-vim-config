@@ -252,9 +252,9 @@ let g:tagbar_autofocus = 1
 " NERDTree ----------------------------- 
 
 " toggle nerdtree display
-map <F3> :NERDTreeToggle<CR>
+map <F7> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
-nmap ,t :NERDTreeFind<CR>
+nmap <F8> :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
@@ -269,28 +269,28 @@ map <F2> :TaskList<CR>
 " file finder mapping
 "let g:ctrlp_map = ',e'
 " tags (symbols) in current file finder mapping
-nmap ,g :CtrlPBufTag<CR>
+"nmap ,g :CtrlPBufTag<CR>
 " tags (symbols) in all files finder mapping
-nmap ,G :CtrlPBufTagAll<CR>
+"nmap ,G :CtrlPBufTagAll<CR>
 " general code finder in all files mapping
-nmap ,f :CtrlPLine<CR>
+"nmap ,f :CtrlPLine<CR>
 " recent files finder mapping
-nmap ,m :CtrlPMRUFiles<CR>
+"nmap ,m :CtrlPMRUFiles<CR>
 " commands finder mapping
-nmap ,c :CtrlPCmdPalette<CR>
+"nmap ,c :CtrlPCmdPalette<CR>
 " to be able to call CtrlP with default search text
-function! CtrlPWithSearchText(search_text, ctrlp_command_end)
-    execute ':CtrlP' . a:ctrlp_command_end
-    call feedkeys(a:search_text)
-endfunction
+"function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+"    execute ':CtrlP' . a:ctrlp_command_end
+"    call feedkeys(a:search_text)
+"endfunction
 " same as previous mappings, but calling with current word as default text
-nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
-nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
-nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
-nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
-nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
-nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
-nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
+"nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+"nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
+"nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+"nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+"nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+"nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
+"nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
 " don't change working directory
 let g:ctrlp_working_path_mode = 0
 " ignore these files and folders on file finder
@@ -309,10 +309,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 0
 " custom icons (enable them if you use a patched font, and enable the previous 
 " setting)
-"let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '⚠'
-"let g:syntastic_style_error_symbol = '✗'
-"let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
 
 " Python-mode ------------------------------
 
@@ -335,21 +335,21 @@ nmap ,o :RopeFindOccurrences<CR>
 " most of them not documented because I'm not sure how they work
 " (docs aren't good, had to do a lot of trial and error to make 
 " it play nice)
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_fuzzy_completion_start_length = 1
-let g:neocomplcache_auto_completion_start_length = 1
-let g:neocomplcache_manual_completion_start_length = 1
-let g:neocomplcache_min_keyword_length = 1
-let g:neocomplcache_min_syntax_length = 1
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_ignore_case = 1
+"let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplcache_enable_fuzzy_completion = 1
+"let g:neocomplcache_enable_camel_case_completion = 1
+"let g:neocomplcache_enable_underbar_completion = 1
+"let g:neocomplcache_fuzzy_completion_start_length = 1
+"let g:neocomplcache_auto_completion_start_length = 1
+"let g:neocomplcache_manual_completion_start_length = 1
+"let g:neocomplcache_min_keyword_length = 1
+"let g:neocomplcache_min_syntax_length = 1
 " complete with workds from any opened file
-let g:neocomplcache_same_filetype_lists = {}
-let g:neocomplcache_same_filetype_lists._ = '_'
+"let g:neocomplcache_same_filetype_lists = {}
+"let g:neocomplcache_same_filetype_lists._ = '_'
 
 " TabMan ------------------------------
 
@@ -416,17 +416,35 @@ let g:airline#extensions#whitespace#enabled = 0
 
 
 " config by daigong
+let mapleader = "\<Space>"
+
+" jj to esc
 imap jj <ESC>
 " 关闭自动补全插件 选择第一个
-let g:neocomplcache_enable_auto_select = 0
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
+" complete with workds from any opened file
+let g:neocomplcache_same_filetype_lists = {}
+let g:neocomplcache_same_filetype_lists._ = '_'
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
 
 "写入 Ctrl+L,s
-map <silent> <C-L>s <ESC>:update<CR>
-imap <silent> <C-L>s <ESC>:update<CR>
+map <silent> <leader>s <ESC>:update<CR>
 "退出 Ctrl+L,q
-map <silent> <C-L>q <ESC>:quit<CR>
-imap <silent> <C-L>q <ESC>:quit<CR>
+map <silent> <leader>q <ESC>:quit<CR>
 
 "python 自动排版
-map <silent> <C-L>f <ESC>:YapfFullFormat<CR>
-imap <silent> <C-L>f <ESC>:YapfFullFormat<CR>
+map <silent> <leader>f <ESC>:YapfFullFormat<CR>
+" ctrlp 插件
+let g:ctrlp_map = '<Leader>p'
