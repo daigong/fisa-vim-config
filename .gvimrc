@@ -17,4 +17,7 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
     \endif<CR>
 
 "字体大小 字体文件在fonts 目录
-set guifont=Monaco:h16
+"set guifont=Monaco:h16
+
+"ubuntu set this
+set guifont=Monaco\ 16
