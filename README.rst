@@ -1,6 +1,12 @@
 by daigong
 
-see install and run it to install
+安装方式
+
+0）如果是os x 安装 brew , ubuntu 不用
+
+
+执行 
+\curl -sSL https://raw.githubusercontent.com/daigong/fisa-vim-config/master/install | bash
 
 fisa-vim-config
 ===============
