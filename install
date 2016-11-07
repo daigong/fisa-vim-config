@@ -5,10 +5,10 @@ echo '==============================='
 echo 'start to install dependences...'
 case "$OSTYPE" in
     darwin*)  brew install vim git pip curl;;
-    linux*)   sudo apt-get install vim exuberant-ctags git python-pip curl;;
+    linux*)   sudo apt-get install python-pip curl vim exuberant-ctags git ack-grep;;
     *)        echo "unknown: OS: $OSTYPE, U should install dependences by yourself" ;;
 esac
-sudo pip install dbgp vim-debug pep8 flake8 pyflakes isort
+sudo pip install dbgp vim-debug pep8 flake8 pyflakes isort yapf
 
 echo '==============================='
 echo 'start to download vimrc file...'
